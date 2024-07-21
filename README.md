@@ -14,6 +14,7 @@
 # Some Commands
 > [!Tip]
 > By default, the compilation starts from the main.typ file in the parent directory of typst-book-template, and the output file is output_file.pdf.
+> 
 > If you want to make changes, you can refer to typst-book/template/metadata.json and create metadata.json in the root directory of your project.
 
 ```shell
