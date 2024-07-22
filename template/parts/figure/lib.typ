@@ -2,4 +2,4 @@
 #import "pic.typ": pic
 #import "tbl.typ": tbl
 
-#let figure_root_path = "../../../"
+#let figure_root_path = "../../../../"
