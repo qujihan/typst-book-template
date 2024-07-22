@@ -1,6 +1,6 @@
-#import "parts/lib.typ": *
-#import "params.typ": *
-#import "utils.typ": *
+#import "template/parts/lib.typ": *
+#import "template/params.typ": *
+#import "template/utils.typ": *
 
 #let book(info: (), body) = {
   set document(
