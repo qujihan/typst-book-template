@@ -7,7 +7,6 @@ import argparse
 import requests
 
 
-
 try:
     from tqdm import tqdm
 
@@ -32,12 +31,12 @@ def download_and_extract(url, filename):
     block_size = 1024
     downloaded_size = 0
     current_dir = os.path.abspath(os.path.dirname(__file__))
-    download_filename = os.path.join(current_dir, f"{filename}.zip")
+    filename_abs_path = os.path.join(current_dir, f"{filename}.zip")
 
     if tqdm_installed:
         progress_bar = tqdm(total=total_size, unit="iB", unit_scale=True)
 
-    with open(download_filename, "wb") as file:
+    with open(filename_abs_path, "wb") as file:
         for data in response.iter_content(block_size):
             downloaded_size += len(data)
             file.write(data)
@@ -47,8 +46,8 @@ def download_and_extract(url, filename):
                 progress = downloaded_size / total_size * 100
                 print(f"Download {filename}: {progress:.2f}%")
 
-    with zipfile.ZipFile(download_filename, "r") as zip_ref:
-        zip_ref.extractall(filename)
+    with zipfile.ZipFile(filename_abs_path, "r") as zip_ref:
+        zip_ref.extractall(filename_abs_path)
 
 
 def main():
