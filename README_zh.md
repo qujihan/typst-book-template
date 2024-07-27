@@ -21,7 +21,8 @@
 
 ```shell
 # 将本项目作为 git submodule
-git submodule add --recursive https://github.com/qujihan/typst-book-template.git
+git submodule add https://github.com/qujihan/typst-book-template.git typst-book-template
+git submodule update --init --recursive
 
 # 实时预览
 python typst-book-template/op.py w
