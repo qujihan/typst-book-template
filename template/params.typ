@@ -1,7 +1,12 @@
-#let english_font = "Lora"
-#let chinese_font = "Source Han Serif SC"
-#let code_font = "FiraCode Nerd Font Mono"
+#let english-font = "Lora"
+#let chinese-font = "Source Han Serif SC"
+#let code-font = "FiraCode Nerd Font Mono"
 
-#let content_font = (english_font, chinese_font)
-#let content_font_size = 11pt
-#let content_color = rgb("#1f1f1f")
+#let content-font = (english-font, chinese-font)
+#let content-font-size = 11pt
+#let content-color = rgb("#1f1f1f")
+
+
+#let figure-kind-code = "figure-kind-code"
+#let figure-kind-pic = "figure-kind-pic"
+#let figure-kind-tbl = "figure-kind-tbl"

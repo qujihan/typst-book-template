@@ -16,16 +16,16 @@
     header: context {
       set align(center)
 
-      let curr_page = here().page()
-      let heading_1_anchors = query(
+      let curr-page = here().page()
+      let heading-1-anchors = query(
         selector(heading.where(level: 1)),
       ).map(it => it.location().page())
-      let title1_infos = query(selector(heading.where(level: 1)).before(here()))
-      let title2_infos = query(selector(heading.where(level: 2)).before(here()))
+      let title1-infos = query(selector(heading.where(level: 1)).before(here()))
+      let title2-infos = query(selector(heading.where(level: 2)).before(here()))
 
-      if curr_page not in heading_1_anchors and title1_infos.len() != 0 and title2_infos.len() != 0 {
-        let title1_body = title1_infos.last().body
-        let title2_body = title2_infos.last().body
+      if curr-page not in heading-1-anchors and title1-infos.len() != 0 and title2-infos.len() != 0 {
+        let title1-body = title1-infos.last().body
+        let title2-body = title2-infos.last().body
         grid(
           columns: (1fr, 1fr),
           align: (left, right),
@@ -33,15 +33,15 @@
             size: 1em,
             fill: black,
             baseline: 0.5em,
-            font: content_font,
-            title1_body,
+            font: content-font,
+            title1-body,
           ),
           text(
             size: 1em,
             fill: black,
             baseline: 0.5em,
-            font: content_font,
-            title2_body,
+            font: content-font,
+            title2-body,
           ),
         )
         line(length: 100%, stroke: 0.7pt)
@@ -50,16 +50,16 @@
 
     footer: context {
       set align(center)
-      let curr_page = here().page()
-      let heading_1_anchors = query(
+      let curr-page = here().page()
+      let heading-1-anchors = query(
         selector(heading.where(level: 1)),
       ).map(it => it.location().page())
-      if curr_page not in heading_1_anchors {
+      if curr-page not in heading-1-anchors {
         grid(
           columns: (5fr, 1fr, 5fr),
           line(length: 100%, stroke: 0.7pt),
           text(
-            font: chinese_font,
+            font: chinese-font,
             1em,
             baseline: -3pt,
             counter(page).display("1"),
@@ -71,10 +71,10 @@
   )
 
   set text(
-    font: content_font,
-    size: content_font_size,
+    font: content-font,
+    size: content-font-size,
     weight: 400,
-    fill: content_color,
+    fill: content-color,
   )
 
   show par: set block(spacing: 1.5em)
@@ -85,14 +85,14 @@
     linebreaks: "optimized",
   )
 
-  show_cover(info.title, info.name)
+  show-cover(info.title, info.name)
 
-  show_outline()
+  show-outline()
 
   show footnote.entry: set text(
-    font: content_font,
+    font: content-font,
     size: 0.8em,
-    fill: content_color,
+    fill: content-color,
   )
 
   set footnote.entry(
@@ -126,38 +126,41 @@
 
   show figure: it => {
     set align(center)
-    if it.kind == "code" {
+    if it.kind == figure-kind-code {
       it.body
       it.supplement
       " " + it.counter.display(it.numbering)
       " " + it.caption.body
       locate(loc => {
-        let chapter_num = counter(heading).at(loc).at(0)
-        counter("code-num" + str(chapter_num)).step()
+        let chapter-num = counter(heading).at(loc).at(0)
+        counter(figure-kind-code + str(chapter-num)).step()
       })
-    } else if it.kind == "pic" {
+    } else if it.kind == figure-kind-pic {
       it.body
       it.supplement
       " " + it.counter.display(it.numbering)
       " " + it.caption.body
       locate(loc => {
-        let chapter_num = counter(heading).at(loc).at(0)
-        let c = counter("pic-num" + str(chapter_num))
+        let chapter-num = counter(heading).at(loc).at(0)
+        let c = counter(figure-kind-pic + str(chapter-num))
         c.step()
       })
-    } else if it.kind == "tbl" {
+    } else if it.kind == figure-kind-tbl {
       it.body
       it.supplement
       " " + it.counter.display(it.numbering)
       " " + it.caption.body
       locate(loc => {
-        let chapter_num = counter(heading).at(loc).at(0)
-        counter("tbl-num" + str(chapter_num)).step()
+        let chapter-num = counter(heading).at(loc).at(0)
+        counter(figure-kind-tbl + str(chapter-num)).step()
       })
+    } else {
+      it.body
     }
   }
 
   counter(page).update(1)
+
   body
 }
 

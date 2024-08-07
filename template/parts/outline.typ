@@ -1,6 +1,6 @@
 #import "../params.typ": *
 
-#let show_outline() = [
+#let show-outline() = [
   #set page(
     header: none,
     footer: none,
@@ -21,11 +21,11 @@
   }
 
 
-  #let title_block = block()[
+  #let title-block = block()[
     #text(size: 2.2em, strong("目录"))
     #v(3em)
   ]
 
   #set align(center)
-  #outline(indent: auto, depth: 3, title: title_block)
+  #outline(indent: auto, depth: 3, title: title-block)
 ]

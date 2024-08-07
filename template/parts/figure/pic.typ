@@ -1,42 +1,10 @@
-#show figure: it => {
-  set align(center)
-  if it.kind == "code" {
-    it.body
-    it.supplement
-    " " + it.counter.display(it.numbering)
-    " " + it.caption.body
-    locate(loc => {
-      let chapter_num = counter(heading).at(loc).at(0)
-      counter("code-num" + str(chapter_num)).step()
-    })
-  } else if it.kind == "pic" {
-    it.body
-    it.supplement
-    " " + it.counter.display(it.numbering)
-    " " + it.caption.body
-    locate(loc => {
-      let chapter_num = counter(heading).at(loc).at(0)
-      let c = counter("pic-num" + str(chapter_num))
-      c.step()
-    })
-  } else if it.kind == "tbl" {
-    it.body
-    it.supplement
-    " " + it.counter.display(it.numbering)
-    " " + it.caption.body
-    locate(loc => {
-      let chapter_num = counter(heading).at(loc).at(0)
-      counter("tbl-num" + str(chapter_num)).step()
-    })
-  }
-}
+#import "../../params.typ": *
 
-
-#let get_pic_num(_) = {
+#let pic-num(_) = {
   locate(loc => {
-    let chapter_num = counter(heading).at(loc).at(0)
-    let c = counter("pic-num" + str(chapter_num))
-    str(chapter_num) + "-" + str(c.at(loc).at(0) + 1)
+    let chapter-num = counter(heading).at(loc).at(0)
+    let c = counter(figure-kind-pic + str(chapter-num))
+    str(chapter-num) + "-" + str(c.at(loc).at(0) + 1)
   })
 }
 
@@ -55,7 +23,7 @@
     picIn(path),
     caption: caption,
     supplement: [图],
-    numbering: get_pic_num,
-    kind: "pic",
+    numbering: pic-num,
+    kind: figure-kind-pic,
   )
 }

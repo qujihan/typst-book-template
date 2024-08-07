@@ -1,3 +1,3 @@
-#import "cover.typ": *
-#import "outline.typ": *
-#import "figure/lib.typ": *
+#import "cover.typ": show-cover
+#import "outline.typ": show-outline
+#import "figure/lib.typ": code, pic, tbl, figure-root-path

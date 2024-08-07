@@ -1,12 +1,13 @@
-#let code_num(_) = {
+#import "../../params.typ": *
+
+#let code-num(_) = {
   locate(loc => {
-    let chapt = counter(heading).at(loc).at(0)
-    let c = counter("code-num" + str(chapt))
-    let n = c.at(loc).at(0)
-    str(chapt) + "-" + str(n + 1)
-    // c.step()
+    let chapter-num = counter(heading).at(loc).at(0)
+    let type-num = counter(figure-kind-code + str(chapter-num))
+    str(chapter-num) + "-" + str(type-num.at(loc).at(0) + 1)
   })
 }
+
 
 #let codeIn(title, content) = block(
   above: 2em,
@@ -14,6 +15,7 @@
   width: 100%,
   inset: 15pt,
   fill: white,
+  breakable: true,
 )[
   #place(
     top + right,
@@ -31,12 +33,13 @@
   ]
 ]
 
-#let code(title, code, caption) = {
+#let code(title, caption, content) = {
   figure(
-    codeIn(title, code),
+    codeIn(title, content),
+    placement: auto,
     caption: caption,
     supplement: [代码],
-    numbering: code_num,
-    kind: "code",
+    numbering: code-num,
+    kind: figure-kind-code,
   )
 }
