@@ -1,6 +1,6 @@
 #let english-font = "Lora"
 #let chinese-font = "Source Han Serif SC"
-#let code-font = "FiraCode Nerd Font Mono"
+#let code-font = "CaskaydiaCove NF"
 
 #let content-font = (english-font, chinese-font)
 #let content-font-size = 11pt

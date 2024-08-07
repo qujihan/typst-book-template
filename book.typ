@@ -89,6 +89,8 @@
 
   show-outline()
 
+  set block(breakable: true)
+
   show footnote.entry: set text(
     font: content-font,
     size: 0.8em,
@@ -158,6 +160,12 @@
       it.body
     }
   }
+
+  show raw: it => {
+    text(font: code-font, it)
+  }
+
+  show raw: set block(breakable: true)
 
   counter(page).update(1)
 
