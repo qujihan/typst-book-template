@@ -1,13 +1,22 @@
-# Typst-book-template
+<div align="center">
+<strong>
+<samp>
+
 [中文](./README_zh.md)
+
+</samp>
+</strong>
+</div>
+
+# Typst-book-template
 > [!IMPORTANT]
 > Prerequisites:
 > 1. [typst](https://github.com/typst/typst)
 > 2. [typstyle](https://github.com/Enter-tainer/typstyle)
-> 3. Fonts
+> 3. [Fonts](./fonts.json)
 >   - Chinese font: [Source Han Serif SC](https://github.com/adobe-fonts/source-han-serif)
 >   - Western font: [Lora](https://github.com/cyrealtype/Lora-Cyrillic)
->   - Code font: [FiraCode Nerd Font Mono](https://github.com/tonsky/FiraCode)
+>   - Code font: [CaskaydiaCove Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/CascadiaCode.zip)
 >   - If you want to install all fonts at once, you can run download.py under the fonts directory (`python typst-book-template/fonts/download.py`)
 >       - For users in mainland China, you can use `python typst-book-template/fonts/download.py --proxy` to improve download speed
 

@@ -1,13 +1,22 @@
-# 一个Typst书籍模板
+<div align="center">
+<strong>
+<samp>
+
 [English](./README.md)
+
+</samp>
+</strong>
+</div>
+
+# 一个Typst书籍模板
 > [!IMPORTANT]
 > 需要提前安装:
 > 1. [typst](https://github.com/typst/typst)
 > 2. [typstyle](https://github.com/Enter-tainer/typstyle)
-> 3. 字体
+> 3. [字体](./fonts.json)
 >   - 中文字体: [Source Han Serif SC](https://github.com/adobe-fonts/source-han-serif)
 >   - 西文字体: [Lora](https://github.com/cyrealtype/Lora-Cyrillic)
->   - 代码字体: [FiraCode Nerd Font Mono](https://github.com/tonsky/FiraCode)
+>   - 代码字体: [CaskaydiaCove Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/CascadiaCode.zip)
 >   - 如果想一键安装, 可以运行 fonts 下的 download.py (`python typst-book-template/fonts/download.py`)
 >       - 中国大陆地区可是使用 `python typst-book-template/fonts/download.py --proxy` 提高下载速度
 
