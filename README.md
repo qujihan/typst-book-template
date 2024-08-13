@@ -32,7 +32,9 @@
 # Add this project as a git submodule
 git submodule add https://github.com/qujihan/typst-book-template.git typst-book-template
 git submodule update --init --recursive
-python fonts/download.py
+# recommand install tqdm
+# pip install tqdm
+python typst-book-template/fonts/download.py
 
 # Real-time preview
 python typst-book-template/op.py w
