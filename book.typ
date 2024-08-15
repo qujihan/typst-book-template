@@ -38,7 +38,7 @@
         title2-body = title2-infos.last().body
       }
 
-      if curr-page not in heading-1-anchors and curr-page not in heading-2-anchors{
+      if curr-page not in heading-1-anchors and curr-page not in heading-2-anchors {
         grid(
           columns: (1fr, 1fr),
           align: (left, right),
