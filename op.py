@@ -96,6 +96,7 @@ def watch(output_name):
 def format():
     if shutil.which("typstyle"):
         subprocess.run(["typstyle", "format-all"])
+        subprocess.run(["typstyle", "format-all", "../"])
     else:
         print("typstyle command not found")
         print(" ")
