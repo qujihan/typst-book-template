@@ -27,9 +27,39 @@
 > 
 > 如果想要修改可以参照 typst-book-template/metadata.json, 在项目根目录下(与typst-book-template同级)创建 metadata.json
 
+metadata.json
+// output_file_name 需要以.pdf或者.svg结尾
+```json
+{
+    "root_file_name": "main.typ",
+    "output_file_name": "typst-book-template-demo.pdf"
+}
+```
+
+main.typ
+```typ
+#import "typst-book-template/book.typ": *
+
+#show: book.with(info: (
+  name: "author",
+  title: "typst-book-template demo",
+))
+
+#include "src/chapter1.typ"
+```
+
+src/chapter1.typ
+```typ
+#import "../typst-book-template/book.typ": *
+// `path-prefix`如何使用, 可以参考 expample下的例子
+#let path-prefix = figure-root-path + "src/pics/"
+= chapter 1
+== section 1
+```
 
 ```shell
 # 将本项目作为 git submodule
+git init
 git submodule add https://github.com/qujihan/typst-book-template.git typst-book-template
 git submodule update --init --recursive
 # 推荐按照 tqdm
