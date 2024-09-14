@@ -190,7 +190,7 @@
   }
 
   show raw: it => {
-    text(font: code-font, it)
+    text(font: (code-font, chinese-font), it)
   }
 
   show raw: set block(breakable: true)
