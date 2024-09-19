@@ -105,14 +105,6 @@
     fill: content-color,
   )
 
-  show par: set block(spacing: 1.5em)
-  set par(
-    first-line-indent: 2em,
-    // justify: true,
-    leading: 0.8em,
-    linebreaks: "optimized",
-  )
-
   show-cover(info.title, info.name)
 
   show-outline()
@@ -132,26 +124,70 @@
     indent: 0em,
   )
 
+  show par: set block(spacing: 1.5em)
+  set par(
+    first-line-indent: 2em,
+    justify: true,
+    leading: 0.8em,
+    linebreaks: "optimized",
+  )
+
   show heading: set heading(numbering: "1.1.1 ")
 
   show heading.where(level: 1): it => {
     pagebreak(weak: false)
     let str = counter(heading).display("第1章") + "   " + it.body
     text(size: 2em, strong(str))
-    // reference: https://github.com/typst/typst/issues/311
-    par(leading: 2em)[#text(size: 0.0em)[#h(0.0em)]]
   }
 
   show heading.where(level: 2): it => {
     text(size: 1.7em, strong(it))
-    // reference: https://github.com/typst/typst/issues/311
-    par(leading: 2em)[#text(size: 0.0em)[#h(0.0em)]]
   }
 
   show heading.where(level: 3): it => {
     text(size: 1.4em, strong(it))
-    // reference: https://github.com/typst/typst/issues/311
-    par(leading: 2em)[#text(size: 0.0em)[#h(0.0em)]]
+  }
+
+
+  // reference: https://github.com/typst/typst/issues/311
+  // https://github.com/typst/typst/issues/311#issuecomment-2023038611
+  let virtual-line(radio) = {
+    let a = par(box())
+    a
+    v(radio * measure(2 * a).width)
+  }
+
+  let indent-size = 1em
+  show heading: it => {
+    it
+    virtual-line(-0.5)
+  }
+
+  set list(indent: indent-size)
+  show list: it => {
+    it
+    virtual-line(-0.7)
+
+  }
+
+  set enum(indent: indent-size)
+  show enum: it => {
+    it
+    virtual-line(-0.7)
+  }
+
+  show raw.where(block: true): it => {
+    it
+    virtual-line(-0.7)
+  }
+
+  show raw.where(block: false): it => {
+    h(0.15em) + it + h(0.15em)
+  }
+  show raw: set block(breakable: true)
+  show raw: it => {
+    set text(font: (code-font, chinese-font))
+    it
   }
 
   show figure: it => {
@@ -189,14 +225,9 @@
     }
   }
 
-  show raw: it => {
-    text(font: (code-font, chinese-font), it)
-  }
 
-  show raw: set block(breakable: true)
 
   counter(page).update(1)
 
   body
 }
-

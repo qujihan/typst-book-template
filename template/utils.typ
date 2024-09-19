@@ -24,11 +24,13 @@
   #set text(fill: black)
   #place(
     top + left,
-    dy: -20pt,
+    dy: -25pt,
     dx: 0pt,
     block(fill: white, inset: 2pt, outset: 2pt)[
       #v(0.5em)
-      *#title*
+      #text(fill: blue)[
+        *#title*
+      ]
       #v(0.5em)
     ],
   )
