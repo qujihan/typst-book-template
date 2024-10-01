@@ -1,51 +1,50 @@
-#import ("params.typ")
+#import "params.typ": *
 
 #let reference-block(title, content) = {
-  set align(center)
   set par(first-line-indent: 0em)
   block(
-    above: 2em,
-    below: 2em,
-    width: 95%,
+    width: 100%,
+    fill: luma(240),
+    stroke: (left: 5pt + line-color),
+    inset: (left: 8pt, right: 1em, bottom: 1em, top: 1em),
     breakable: true,
   )[
     #v(0.5em)
-    #text(fill: black, size: 1.2em)[
+    #text(fill: content-color, size: 1.2em)[
       #align(center)[
         *#title*
       ]
     ]
     #content
     #v(0.5em)
-
-    #rect(width: 100%, fill: luma(240), stroke: (left: 0.25em))[
-    ]
   ]
 }
 
-#let tips-block(title, content) = block(
-  above: 2em,
-  below: 2em,
-  stroke: 0.5pt + black,
-  radius: 6pt,
-  width: 100%,
-  inset: 14pt,
-  breakable: true,
-)[
-  #set par(first-line-indent: 0em)
-  #set text(fill: black)
-  #place(
-    top + left,
-    dy: -25pt,
-    dx: 0pt,
-    block(fill: white, inset: 2pt, outset: 2pt)[
-      #v(0.5em)
-      #text(fill: blue)[
-        *#title*
-      ]
-      #v(0.5em)
-    ],
-  )
-  #content
-]
+#let tips-block(title, content) = {
+  set par(first-line-indent: 0em)
+  set text(fill: content-color)
+  block(
+    above: 2em,
+    below: 2em,
+    stroke: 0.5pt + line-color,
+    radius: 6pt,
+    width: 100%,
+    inset: 14pt,
+    breakable: true,
+  )[
+    #place(
+      top + left,
+      dy: -25pt,
+      dx: 0pt,
+      block(fill: white, inset: 2pt, outset: 2pt)[
+        #v(0.5em)
+        #text(fill: blue)[
+          *#title*
+        ]
+        #v(0.5em)
+      ],
+    )
+    #content
+  ]
+}
 
