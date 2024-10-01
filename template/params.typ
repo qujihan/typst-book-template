@@ -3,8 +3,9 @@
 #let code-font = "CaskaydiaCove NF"
 
 #let content-font = (english-font, chinese-font)
-#let content-font-size = 11pt
-#let content-color = rgb("#1f1f1f")
+#let content-font-size = 10pt
+#let content-color = black
+#let line-color = luma(80)
 
 
 #let figure-kind-code = "figure-kind-code"

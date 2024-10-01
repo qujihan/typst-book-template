@@ -11,7 +11,8 @@
 
 #let codeIn(title, content) = block(
   above: 2em,
-  stroke: 0.5pt + black,
+  stroke: 0.5pt + line-color,
+  radius: 6pt,
   width: 100%,
   inset: 15pt,
   fill: white,
@@ -25,7 +26,7 @@
       fill: white,
       inset: 2pt,
       outset: 2pt,
-      text(font: "Lora", style: "italic", fill: luma(100))[*#title*],
+      text(font: "Lora", style: "italic", fill: line-color)[*#title*],
     ),
   )
   #align(left + top)[

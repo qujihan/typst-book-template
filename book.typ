@@ -44,20 +44,19 @@
           align: (left, right),
           text(
             size: 1em,
-            fill: black,
+            fill: line-color,
             baseline: 0.5em,
             font: content-font,
             title1-body,
           ),
           text(
             size: 1em,
-            fill: black,
+            fill: line-color,
             baseline: 0.5em,
             font: content-font,
             title2-body,
           ),
         )
-        line(length: 100%, stroke: 0.7pt)
       }
 
       if curr-page not in heading-1-anchors and curr-page in heading-2-anchors {
@@ -66,14 +65,14 @@
           align: (center),
           text(
             size: 1em,
-            fill: black,
+            fill: line-color,
             baseline: 0.5em,
             font: content-font,
             title1-body,
           )
         )
-        line(length: 100%, stroke: 0.7pt)
       }
+      line(length: 100%, stroke: 0.7pt + line-color)
     },
 
     footer: context {
@@ -84,15 +83,16 @@
       ).map(it => it.location().page())
       if curr-page not in heading-1-anchors {
         grid(
-          columns: (5fr, 1fr, 5fr),
-          line(length: 100%, stroke: 0.7pt),
+          columns: (7fr, 1fr, 7fr),
+          line(length: 100%, stroke: 0.7pt + line-color),
           text(
             font: chinese-font,
-            1em,
+            fill: line-color,
+            0.8em,
             baseline: -3pt,
             counter(page).display("1"),
           ),
-          line(length: 100%, stroke: 0.7pt),
+          line(length: 100%, stroke: 0.7pt + line-color),
         )
       }
     },
@@ -184,6 +184,7 @@
   show raw.where(block: false): it => {
     h(0.15em) + it + h(0.15em)
   }
+
   show raw: set block(breakable: true)
   show raw: it => {
     set text(font: (code-font, chinese-font))
