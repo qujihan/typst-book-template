@@ -1,6 +1,6 @@
 #import "../params.typ": *
 
-#let show-outline() = [
+#let show-outline(show-depth) = [
   #set page(
     header: none,
     footer: none,
@@ -25,5 +25,5 @@
   }
 
   #set align(center)
-  #outline(indent: auto, depth: 3, title: title-block)
+  #outline(indent: auto, depth: show-depth, title: title-block)
 ]

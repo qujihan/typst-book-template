@@ -2,7 +2,22 @@
 #import "template/params.typ": *
 #import "template/utils.typ": *
 
-#let book(info: (), body) = {
+#let book(info: (
+  this-is-dict: true,
+  this-is-not-array: true,
+), body) = {
+  if not "title" in info {
+    info.insert("title", "Unnamed Book")
+  }
+
+  if not "name" in info {
+    info.insert("name", "Unnamed Author")
+  }
+
+  if not "outline-depth" in info {
+    info.insert("outline-depth", 3)
+  }
+
   set document(
     title: info.title,
     author: info.name,
@@ -57,6 +72,7 @@
             title2-body,
           ),
         )
+        line(length: 100%, stroke: 0.7pt + line-color)
       }
 
       if curr-page not in heading-1-anchors and curr-page in heading-2-anchors {
@@ -71,8 +87,8 @@
             title1-body,
           )
         )
+        line(length: 100%, stroke: 0.7pt + line-color)
       }
-      line(length: 100%, stroke: 0.7pt + line-color)
     },
 
     footer: context {
@@ -81,20 +97,18 @@
       let heading-1-anchors = query(
         selector(heading.where(level: 1)),
       ).map(it => it.location().page())
-      if curr-page not in heading-1-anchors {
-        grid(
-          columns: (7fr, 1fr, 7fr),
-          line(length: 100%, stroke: 0.7pt + line-color),
-          text(
-            font: chinese-font,
-            fill: line-color,
-            0.8em,
-            baseline: -3pt,
-            counter(page).display("1"),
-          ),
-          line(length: 100%, stroke: 0.7pt + line-color),
-        )
-      }
+      grid(
+        columns: (7fr, 1fr, 7fr),
+        line(length: 100%, stroke: 0.7pt + line-color),
+        text(
+          font: chinese-font,
+          fill: line-color,
+          0.8em,
+          baseline: -3pt,
+          counter(page).display("1"),
+        ),
+        line(length: 100%, stroke: 0.7pt + line-color),
+      )
     },
   )
 
@@ -107,7 +121,7 @@
 
   show-cover(info.title, info.name)
 
-  show-outline()
+  show-outline(info.outline-depth)
 
   set block(breakable: true)
 
@@ -178,11 +192,13 @@
 
   show raw.where(block: true): it => {
     set text(size: (content-font-size - 2pt))
+    set par(justify: false)
     it
     virtual-line(-0.7)
   }
 
   show raw.where(block: false): it => {
+    set text(size: content-font-size - 0.5pt)
     h(0.15em) + it + h(0.15em)
   }
 
@@ -227,9 +243,11 @@
     }
   }
 
-
-
   counter(page).update(1)
+  show page: it => {
+    counter(footnote).update(0)
+    it
+  }
 
   body
 }
