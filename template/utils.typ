@@ -6,6 +6,7 @@
     width: 100%,
     fill: luma(240),
     stroke: (left: 5pt + line-color),
+    radius: 6pt,
     inset: (left: 8pt, right: 1em, bottom: 1em, top: 1em),
     breakable: true,
   )[
