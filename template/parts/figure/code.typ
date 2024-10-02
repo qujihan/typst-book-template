@@ -9,23 +9,25 @@
 }
 
 
-#let codeIn(title, content) = block(
-  above: 2em,
+#let codeIn(
+  title,
+  content,
+) = block(
   stroke: 0.5pt + line-color,
   radius: 6pt,
   width: 100%,
-  inset: 15pt,
-  fill: white,
+  inset: (top:0.4em, bottom:0.3em, left:0.6em, right:0.9em),
+  fill: none,
   breakable: true,
 )[
   #place(
     top + right,
-    dy: -21pt,
-    dx: 0pt,
+    dy: -0.9em,
+    dx: -1em,
     block(
       fill: white,
-      inset: 2pt,
-      outset: 2pt,
+      inset: (bottom: 0.1em),
+      outset: (left: 0.5em, right: 0.5em),
       text(font: "Lora", style: "italic", fill: line-color)[*#title*],
     ),
   )

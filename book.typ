@@ -177,6 +177,7 @@
   }
 
   show raw.where(block: true): it => {
+    set text(size: (content-font-size - 2pt))
     it
     virtual-line(-0.7)
   }
