@@ -11,7 +11,7 @@
 # 一个Typst书籍模板
 > [!IMPORTANT]
 > 需要提前安装:
-> 1. [typst](https://github.com/typst/typst)
+> 1. [typst](https://github.com/typst/typst): 0.12.0 或者更高版本
 > 2. [typstyle](https://github.com/Enter-tainer/typstyle)
 > 3. [字体](./fonts.json)
 >   - 中文字体: [Source Han Serif SC](https://github.com/adobe-fonts/source-han-serif)

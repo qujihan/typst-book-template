@@ -2,10 +2,7 @@
 #import "template/params.typ": *
 #import "template/utils.typ": *
 
-#let book(info: (
-  this-is-dict: true,
-  this-is-not-array: true,
-), body) = {
+#let book(info: (), body) = {
   if not "title" in info {
     info.insert("title", "Unnamed Book")
   }
@@ -138,12 +135,12 @@
     indent: 0em,
   )
 
-  show par: set block(spacing: 1.5em)
   set par(
     first-line-indent: 2em,
     justify: true,
     leading: 0.8em,
     linebreaks: "optimized",
+    spacing: 1.5em,
   )
 
   show heading: set heading(numbering: "1.1.1 ")
@@ -165,11 +162,13 @@
 
   // reference: https://github.com/typst/typst/issues/311
   // https://github.com/typst/typst/issues/311#issuecomment-2023038611
-  let virtual-line(radio) = {
-    let a = par(box())
-    a
-    v(radio * measure(2 * a).width)
-  }
+  let virtual-line(radio) = (
+    context {
+      let a = par(box())
+      a
+      v(radio * measure(2 * a).width)
+    }
+  )
 
   let indent-size = 1em
   show heading: it => {
@@ -181,7 +180,6 @@
   show list: it => {
     it
     virtual-line(-0.7)
-
   }
 
   set enum(indent: indent-size)
@@ -215,29 +213,25 @@
       it.supplement
       " " + it.counter.display(it.numbering)
       " " + it.caption.body
-      locate(loc => {
-        let chapter-num = counter(heading).at(loc).at(0)
-        counter(figure-kind-code + str(chapter-num)).step()
-      })
+
+      let chapter-num = counter(heading.where(level: 1)).display()
+      counter(figure-kind-code + str(chapter-num)).step()
     } else if it.kind == figure-kind-pic {
       it.body
       it.supplement
       " " + it.counter.display(it.numbering)
       " " + it.caption.body
-      locate(loc => {
-        let chapter-num = counter(heading).at(loc).at(0)
-        let c = counter(figure-kind-pic + str(chapter-num))
-        c.step()
-      })
+
+      let chapter-num = counter(heading.where(level: 1)).display()
+      counter(figure-kind-pic + str(chapter-num)).step()
     } else if it.kind == figure-kind-tbl {
       it.body
       it.supplement
       " " + it.counter.display(it.numbering)
       " " + it.caption.body
-      locate(loc => {
-        let chapter-num = counter(heading).at(loc).at(0)
-        counter(figure-kind-tbl + str(chapter-num)).step()
-      })
+
+      let chapter-num = counter(heading.where(level: 1)).display()
+      counter(figure-kind-tbl + str(chapter-num)).step()
     } else {
       it.body
     }

@@ -1,11 +1,9 @@
 #import "../../params.typ": *
 
 #let pic-num(_) = {
-  locate(loc => {
-    let chapter-num = counter(heading).at(loc).at(0)
-    let c = counter(figure-kind-pic + str(chapter-num))
-    str(chapter-num) + "-" + str(c.at(loc).at(0) + 1)
-  })
+  let chapter-num = counter(heading.where(level: 1)).display()
+  let type-num = counter(figure-kind-pic + chapter-num).display()
+  str(chapter-num) + "-" + str(int(type-num) + 1)
 }
 
 #let picIn(path) = block(

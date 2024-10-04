@@ -1,13 +1,10 @@
 #import "../../params.typ": *
 
 #let code-num(_) = {
-  locate(loc => {
-    let chapter-num = counter(heading).at(loc).at(0)
-    let type-num = counter(figure-kind-code + str(chapter-num))
-    str(chapter-num) + "-" + str(type-num.at(loc).at(0) + 1)
-  })
+  let chapter-num = counter(heading.where(level: 1)).display()
+  let type-num = counter(figure-kind-code + chapter-num).display()
+  str(chapter-num) + "-" + str(int(type-num) + 1)
 }
-
 
 #let codeIn(
   title,
