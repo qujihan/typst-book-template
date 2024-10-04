@@ -59,14 +59,14 @@
             fill: line-color,
             baseline: 0.5em,
             font: content-font,
-            title1-body,
+            strong(title1-body),
           ),
           text(
             size: 1em,
             fill: line-color,
             baseline: 0.5em,
             font: content-font,
-            title2-body,
+            strong(title2-body),
           ),
         )
         line(length: 100%, stroke: 0.7pt + line-color)
@@ -81,7 +81,7 @@
             fill: line-color,
             baseline: 0.5em,
             font: content-font,
-            title1-body,
+            strong(title1-body),
           )
         )
         line(length: 100%, stroke: 0.7pt + line-color)
@@ -102,7 +102,7 @@
           fill: line-color,
           0.8em,
           baseline: -3pt,
-          counter(page).display("1"),
+          strong(counter(page).display("1")),
         ),
         line(length: 100%, stroke: 0.7pt + line-color),
       )
@@ -140,7 +140,7 @@
     justify: true,
     leading: 0.8em,
     linebreaks: "optimized",
-    spacing: 1.5em,
+    // spacing: 1.5em,
   )
 
   show heading: set heading(numbering: "1.1.1 ")
@@ -148,15 +148,15 @@
   show heading.where(level: 1): it => {
     pagebreak(weak: false)
     let str = counter(heading).display("第1章") + "   " + it.body
-    text(size: 2em, strong(str))
+    text(size: 1.7em, str)
   }
 
   show heading.where(level: 2): it => {
-    text(size: 1.7em, strong(it))
+    text(size: 1.5em, it)
   }
 
   show heading.where(level: 3): it => {
-    text(size: 1.4em, strong(it))
+    text(size: 1.3em, it)
   }
 
 
@@ -189,21 +189,48 @@
   }
 
   show raw.where(block: true): it => {
-    set text(size: (content-font-size - 2pt))
+    set text(size: 0.9em)
     set par(justify: false)
     it
     virtual-line(-0.7)
   }
 
   show raw.where(block: false): it => {
-    set text(size: content-font-size - 0.5pt)
-    h(0.15em) + it + h(0.15em)
+    set text(size: 1em, fill: code-line-color)
+    h(0.2em)
+    box(
+      fill: luma(240),
+      inset: (left: 0.2em, right: 0.2em, top: 0.3em, bottom: 0.3em),
+      baseline: 0.2em,
+      radius: 0.2em,
+    )[
+      #h(0.2em) #it #h(0.2em)
+    ]
+    h(0.2em)
   }
 
   show raw: set block(breakable: true)
   show raw: it => {
     set text(font: (code-font, chinese-font))
     it
+  }
+
+  show emph: it => {
+    let left-right-space = 0.18em
+    let emph-context = context {
+      h(left-right-space * 2)
+      it
+      h(left-right-space * 2)
+    }
+
+    highlight(
+      fill: emph-color,
+      top-edge: 1.00em,
+      bottom-edge: -0.25em,
+      radius: 0.35em,
+      extent: left-right-space * 2,
+      emph-context,
+    )
   }
 
   show figure: it => {

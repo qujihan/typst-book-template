@@ -6,6 +6,8 @@
 #let content-font-size = 10pt
 #let content-color = black
 #let line-color = luma(80)
+#let code-line-color = rgb("#004cd9b3")
+#let emph-color = rgb("#69ba0655")
 
 
 #let figure-kind-code = "figure-kind-code"
