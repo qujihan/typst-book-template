@@ -56,14 +56,14 @@
           align: (left, right),
           text(
             size: 1em,
-            fill: line-color,
+            fill: content-color,
             baseline: 0.5em,
             font: content-font,
             strong(title1-body),
           ),
           text(
             size: 1em,
-            fill: line-color,
+            fill: content-color,
             baseline: 0.5em,
             font: content-font,
             strong(title2-body),
@@ -78,7 +78,7 @@
           align: (center),
           text(
             size: 1em,
-            fill: line-color,
+            fill: content-color,
             baseline: 0.5em,
             font: content-font,
             strong(title1-body),
@@ -99,7 +99,7 @@
         line(length: 100%, stroke: 0.7pt + line-color),
         text(
           font: chinese-font,
-          fill: line-color,
+          fill: content-color,
           0.8em,
           baseline: -3pt,
           strong(counter(page).display("1")),

@@ -13,7 +13,7 @@
   stroke: 0.5pt + line-color,
   radius: 6pt,
   width: 100%,
-  inset: (top:0.4em, bottom:0.3em, left:0.6em, right:0.9em),
+  inset: (top:0.8em, bottom:0.8em, left:0.6em, right:0.6em),
   fill: none,
   breakable: true,
 )[
