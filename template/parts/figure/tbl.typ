@@ -6,11 +6,11 @@
   str(chapter-num) + "-" + str(int(type-num) + 1)
 }
 
-#let tblIn(title, content) = align(center + horizon)[ #content ]
+#let tblIn(content) = align(center + horizon)[ #content ]
 
-#let tbl(title, code, caption) = {
+#let tbl(caption, tbl) = {
   figure(
-    tblIn(title, code),
+    tblIn(tbl),
     caption: caption,
     supplement: [表格],
     numbering: tbl-num,
