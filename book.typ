@@ -217,18 +217,42 @@
 
   show emph: it => {
     let left-right-space = 0.18em
+    let top-size = 1em
+    let bottom-size = -0.3em
+    let radius-size = 0.35em
+
     let emph-context = context {
-      h(left-right-space * 2)
+      box(
+        baseline: -bottom-size,
+        rect(
+          width: left-right-space * 2,
+          height: top-size - bottom-size,
+          stroke: none,
+          radius: (left: radius-size),
+          fill: emph-color,
+        ),
+      )
+
       it
-      h(left-right-space * 2)
+
+      box(
+        baseline: -bottom-size,
+        rect(
+          width: left-right-space * 2,
+          height: top-size - bottom-size,
+          stroke: none,
+          radius: (right: radius-size),
+          fill: emph-color,
+        ),
+      )
     }
 
     highlight(
       fill: emph-color,
-      top-edge: 1.00em,
-      bottom-edge: -0.25em,
-      radius: 0.35em,
-      extent: left-right-space * 2,
+      top-edge: top-size,
+      bottom-edge: bottom-size,
+      // radius: 0.35em,
+      // extent: left-right-space * 2,
       emph-context,
     )
   }
