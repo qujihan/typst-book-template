@@ -11,7 +11,7 @@
 # Typst-book-template
 > [!IMPORTANT]
 > Prerequisites:
-> 1. [typst](https://github.com/typst/typst): 0.12.0 or later
+> 1. [typst](https://github.com/typst/typst): *0.12.0* or later
 > 2. [typstyle](https://github.com/Enter-tainer/typstyle)
 > 3. [Fonts](./fonts.json)
 >   - Chinese font: [Source Han Serif SC](https://github.com/adobe-fonts/source-han-serif)

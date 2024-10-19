@@ -140,7 +140,7 @@
     justify: true,
     leading: 0.8em,
     linebreaks: "optimized",
-    // spacing: 1.5em,
+    spacing: 1.5em,
   )
 
   show heading: set heading(numbering: "1.1.1 ")
