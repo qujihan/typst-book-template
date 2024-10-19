@@ -9,8 +9,9 @@
 #let code-line-color = rgb("#004cd9b3")
 #let emph-color = rgb("#a7ec542d")
 
-#let util-reference-block-color = luma(240)
-#let util-reference-line-color = luma(80)
+#let util-reference-color = rgb("#163bf5")
+#let util-reference-block-color = util-reference-color.lighten(95%)
+#let util-reference-line-color = util-reference-color.lighten(60%)
 
 #let figure-kind-code = "figure-kind-code"
 #let figure-kind-pic = "figure-kind-pic"
