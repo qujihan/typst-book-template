@@ -1,5 +1,15 @@
 #import "params.typ": *
 
+// reference: https://github.com/typst/typst/issues/311
+// https://github.com/typst/typst/issues/311#issuecomment-2023038611
+#let virtual-line(radio) = (
+  context {
+    let a = par(box())
+    a
+    v(radio * measure(2 * a).width)
+  }
+)
+
 #let reference-block(title, content) = {
   set par(first-line-indent: 0em)
   block(
@@ -48,4 +58,3 @@
     #content
   ]
 }
-

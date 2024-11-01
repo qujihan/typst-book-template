@@ -2,7 +2,7 @@
 #import "template/params.typ": *
 #import "template/utils.typ": *
 
-#let book(info: (), body) = {
+#let book(info: (:), body) = {
   if not "title" in info {
     info.insert("title", "Unnamed Book")
   }
@@ -159,35 +159,18 @@
     text(size: 1.3em, it)
   }
 
-
-  // reference: https://github.com/typst/typst/issues/311
-  // https://github.com/typst/typst/issues/311#issuecomment-2023038611
-  let virtual-line(radio) = (
-    context {
-      let a = par(box())
-      a
-      v(radio * measure(2 * a).width)
-    }
-  )
-
   let indent-size = 1em
-  show heading: it => {
-    it
-    virtual-line(-0.5)
-  }
+  show heading: it => it + virtual-line(-0.7)
 
   set list(indent: indent-size)
-  show list: it => {
-    it
-    virtual-line(-0.7)
-  }
+  show list: it => it + virtual-line(-0.7)
 
   set enum(indent: indent-size)
-  show enum: it => {
-    it
-    virtual-line(-0.7)
-  }
+  show enum: it => it + virtual-line(-0.7)
 
+  show align: it => it + virtual-line(-0.7)
+
+  show raw: set block(breakable: true)
   show raw.where(block: true): it => {
     set text(size: 0.9em)
     set par(justify: false)
@@ -209,7 +192,6 @@
     h(0.2em)
   }
 
-  show raw: set block(breakable: true)
   show raw: it => {
     set text(font: (code-font, chinese-font))
     it
