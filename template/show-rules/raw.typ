@@ -16,17 +16,18 @@
   }
 
   show raw.where(block: false): it => {
-    set text(size: 1em, fill: code-line-color)
-    h(0.2em)
+    set text(size: 0.9em, fill: code-line-color)
+    h(0.3em)
     box(
       fill: luma(240),
-      inset: (left: 0.2em, right: 0.2em, top: 0.3em, bottom: 0.3em),
-      baseline: 0.2em,
+      inset: (top: 0.15em, bottom: 0.15em),
+      outset: (top: 0.15em, bottom: 0.15em),
       radius: 0.2em,
+
     )[
       #h(0.2em) #it #h(0.2em)
     ]
-    h(0.2em)
+    h(0.3em)
   }
 
   body

@@ -39,12 +39,13 @@
     it
   }
 
-  show: set-heading-style.with(body)
   show: set-raw-style.with(body)
   show: set-emph-style.with(body)
-  show: figure-env-set.with(body)
   show: set-footnote-style.with(body)
+  show: set-enum-style.with(body)
+  show: set-heading-style.with(body)
   show: set-first-line-indent.with(body)
+  show: figure-env-set.with(body)
 
   body
 }
