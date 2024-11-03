@@ -1,5 +1,6 @@
 #import "../params.typ": *
-#let set-heading-style(info, body) = {
+
+#let set-heading-style(body) = {
   show heading: set heading(numbering: "1.1.1 ")
 
   show heading.where(level: 1): it => {

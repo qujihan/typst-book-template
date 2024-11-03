@@ -1,6 +1,7 @@
+#import "../params.typ": *
+
 // reference: https://github.com/typst/typst/issues/311
 // https://github.com/typst/typst/issues/311#issuecomment-2023038611
-
 #let virtual-line(radio) = (
   context {
     let a = par(box())
@@ -9,7 +10,7 @@
   }
 )
 
-#let set-first-line-indent(info, body) = {
+#let set-first-line-indent(body) = {
   show heading: it => it + virtual-line(-0.7)
   show list: it => it + virtual-line(-0.7)
   show enum: it => it + virtual-line(-0.7)

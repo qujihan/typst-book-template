@@ -1,6 +1,7 @@
 #import "../params.typ": *
 #import "first-line-indent.typ": virtual-line
-#let set-raw-style(info, body) = {
+
+#let set-raw-style(body) = {
   show raw: set block(breakable: true)
 
   show raw: it => {

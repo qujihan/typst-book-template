@@ -1,6 +1,10 @@
 #let info-check(info: (:)) = {
   let info-after-check = (:)
 
+  /*
+  Basic information check
+  */
+
   if not "title" in info {
     info-after-check.insert("title", "Unnamed Book")
   } else {
@@ -18,6 +22,11 @@
   } else {
     info-after-check.insert("outline-depth", info["outline-depth"])
   }
+
+
+  /*
+  Config check
+  */
 
   return info-after-check
 }

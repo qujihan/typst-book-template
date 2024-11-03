@@ -1,4 +1,6 @@
-#let set-emph-style(info, body) = {
+#import "../params.typ": *
+
+#let set-emph-style(body) = {
   show emph: it => {
     let left-right-space = 0.18em
     let top-size = 1em

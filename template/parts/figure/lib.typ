@@ -5,7 +5,7 @@
 
 #let figure-root-path = "../../../../"
 
-#let figure-env-set(info, body) = {
+#let figure-env-set(body) = {
 
   set block(breakable: true)
 
@@ -39,5 +39,6 @@
       it.body
     }
   }
+
   body
 }

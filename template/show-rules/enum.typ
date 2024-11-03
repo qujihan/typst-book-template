@@ -1,4 +1,6 @@
-#let set-enum-style(info, body) = {
+#import "../params.typ": *
+
+#let set-enum-style(body) = {
   let indent-size = 1.7em
 
   set list(
