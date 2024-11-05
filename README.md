@@ -11,10 +11,10 @@
 # Typst-book-template
 > [!IMPORTANT]
 > Prerequisites:
-> 1. [typst](https://github.com/typst/typst): *0.12.0* or later
+> [typst](https://github.com/typst/typst): *0.12.0* or later
 > 
 > Recommend:
-> 2. [Fonts](./fonts.json) (ref [fonts](https://github.com/qujihan/fonts) download fonts)
+> [Fonts](./fonts.json) (ref [fonts](https://github.com/qujihan/fonts) download fonts)
 >   - cjk font: [Source Han Serif SC](https://github.com/adobe-fonts/source-han-serif)
 >   - latin font: [Lora](https://github.com/cyrealtype/Lora-Cyrillic)
 >   - code font: [CaskaydiaCove Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/CascadiaCode.zip)

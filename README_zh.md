@@ -11,10 +11,10 @@
 # Typst-book-template
 > [!IMPORTANT]
 > 先决条件:
-> 1. [typst](https://github.com/typst/typst): *0.12.0* 或更高版本
+> [typst](https://github.com/typst/typst): *0.12.0* 或更高版本
 > 
 > 推荐:
-> 2. 字体 (参考 [fonts](https://github.com/qujihan/fonts) 来下载字体)
+> 字体 (参考 [fonts](https://github.com/qujihan/fonts) 来下载字体)
 >   - 中日韩字体: [Source Han Serif SC](https://github.com/adobe-fonts/source-han-serif)
 >   - 拉丁字体: [Lora](https://github.com/cyrealtype/Lora-Cyrillic)
 >   - 代码字体: [CaskaydiaCove Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/CascadiaCode.zip)
