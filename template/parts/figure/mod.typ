@@ -1,12 +1,11 @@
-#import "code.typ": code
-#import "pic.typ": pic
-#import "tbl.typ": tbl
+#import "code.typ": code, figure-kind-code
+#import "pic.typ": pic, figure-kind-pic
+#import "tbl.typ": tbl, figure-kind-tbl
 #import "../../params.typ": *
 
 #let figure-root-path = "../../../../"
 
-#let figure-env-set(body) = {
-
+#let figure-env-set(info, body) = {
   set block(breakable: true)
 
   show figure: it => {

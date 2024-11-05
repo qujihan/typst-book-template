@@ -1,5 +1,7 @@
 #import "../../params.typ": *
 
+#let figure-kind-tbl = "figure-kind-tbl"
+
 #let tbl-num(_) = {
   let chapter-num = counter(heading.where(level: 1)).display()
   let type-num = counter(figure-kind-tbl + chapter-num).display()

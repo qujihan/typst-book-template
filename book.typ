@@ -11,15 +11,15 @@
   set page(
     paper: "a4",
     margin: auto,
-    header: page-header-content,
-    footer: page-footer-content,
+    header: page-header-content(),
+    footer: page-footer-content(),
   )
 
   set text(
-    font: content-font,
-    size: content-font-size,
+    font: (info.latin-font + info.cjk-font),
+    size: info.content-size,
     weight: 400,
-    fill: content-color,
+    fill: info.content-color,
   )
 
   set par(
@@ -39,13 +39,13 @@
     it
   }
 
-  show: set-emph-style.with()
+  show: set-emph-style.with(info)
   show: set-enum-style.with()
   show: set-first-line-indent.with()
-  show: set-footnote-style.with()
+  show: set-footnote-style.with(info)
   show: set-heading-style.with()
-  show: set-raw-style.with()
-  show: figure-env-set.with()
+  show: set-raw-style.with(info)
+  show: figure-env-set.with(info)
 
   body
 }

@@ -1,0 +1,20 @@
+[package]
+name = "typst-book-template"
+version = "0.1.0"
+entrypoint = "book.typ"
+authors = ["Qujihan <https://github.com/qujihan>"]
+license = "MIT"
+description = "A template to simply create a book."
+repository = "https://github.com/qujihan/typst-book-template"
+keywords = ["book"]
+compiler = "0.12.0"
+exclude = [
+    "**.pdf",
+    "**.png",
+    "fonts/**",
+    "example/**",
+    "fonts.json",
+    "op.py",
+    "README.**",
+    "LICENSE",
+]

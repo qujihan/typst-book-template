@@ -1,6 +1,8 @@
 #import "../params.typ": *
 
-#let set-emph-style(body) = {
+#let set-emph-style(info, body) = {
+  // repr(args.pos())
+
   show emph: it => {
     let left-right-space = 0.18em
     let top-size = 1em
@@ -15,7 +17,7 @@
           height: top-size - bottom-size,
           stroke: none,
           radius: (left: radius-size),
-          fill: emph-color,
+          fill: info.emph-color,
         ),
       )
 
@@ -28,13 +30,13 @@
           height: top-size - bottom-size,
           stroke: none,
           radius: (right: radius-size),
-          fill: emph-color,
+          fill: info.emph-color,
         ),
       )
     }
 
     highlight(
-      fill: emph-color,
+      fill: info.emph-color,
       top-edge: top-size,
       bottom-edge: bottom-size,
       emph-context,

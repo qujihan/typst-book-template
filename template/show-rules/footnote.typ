@@ -1,10 +1,10 @@
 #import "../params.typ": *
 
-#let set-footnote-style(body) = {
+#let set-footnote-style(info, body) = {
   show footnote.entry: set text(
-    font: content-font,
+    font: info.latin-font + info.cjk-font,
     size: 0.8em,
-    fill: content-color,
+    fill: info.content-color,
   )
 
   set footnote.entry(

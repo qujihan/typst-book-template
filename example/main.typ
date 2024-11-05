@@ -8,89 +8,16 @@
 
 = Chapter 1
 
-#reference-block("Hello, world!")
+#reference-block("Title")[
+  This is reference Block
+]
 
-#let abc = [这是一个块的的内容,这个块可能有许多的内容. #{parbreak()} 现在开始换行了]
-#tips-block(
-  "这是一个标题",
-  abc,
-)
+#tips-block("这是一个标题")[
+  这是一个块的的内容,这个块可能有许多的内容. #{parbreak()} 现在开始换行了
+]
 
 = Code
 代码可以自动标号, 以及可以配置显示代码路径等信息
-
-#code(
-  "sh tree src",
-  "src目录树以及简单注释",
-  ```bash
-  src
-  ├── confchange # 集群成员变更
-  │   ├── changer.rs
-  │   ├── datadriven_test.rs
-  │   ├── restore.rs
-  │   └── testdata # 测试文件
-  │       └── ...
-  ├── confchange.rs
-  ├── config.rs
-  ├── errors.rs
-  ├── lib.rs
-  ├── log_unstable.rs
-  ├── quorum
-  │   ├── datadriven_test.rs
-  │   ├── joint.rs
-  │   ├── majority.rs
-  │   └── testdata # 测试文件
-  │       └── ...
-  ├── quorum.rs
-  ├── raft.rs
-  ├── raft_log.rs
-  ├── raw_node.rs
-  ├── read_only.rs
-  ├── status.rs
-  ├── storage.rs
-  ├── tracker
-  │   ├── inflights.rs
-  │   ├── progress.rs
-  │   └── state.rs
-  ├── tracker.rs
-  └── util.rs
-
-
-  src
-  ├── confchange # 集群成员变更
-  │   ├── changer.rs
-  │   ├── datadriven_test.rs
-  │   ├── restore.rs
-  │   └── testdata # 测试文件
-  │       └── ...
-  ├── confchange.rs
-  ├── config.rs
-  ├── errors.rs
-  ├── lib.rs
-  ├── log_unstable.rs
-  ├── quorum
-  │   ├── datadriven_test.rs
-  │   ├── joint.rs
-  │   ├── majority.rs
-  │   └── testdata # 测试文件
-  │       └── ...
-  ├── quorum.rs
-  ├── raft.rs
-  ├── raft_log.rs
-  ├── raw_node.rs
-  ├── read_only.rs
-  ├── status.rs
-  ├── storage.rs
-  ├── tracker
-  │   ├── inflights.rs
-  │   ├── progress.rs
-  │   └── state.rs
-  ├── tracker.rs
-  └── util.rs
-  ```,
-)
-
-
 
 #code(
   "raft-rs/src/utils.rs",

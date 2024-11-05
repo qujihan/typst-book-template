@@ -1,5 +1,7 @@
 #import "../../params.typ": *
 
+#let figure-kind-pic = "figure-kind-pic"
+
 #let pic-num(_) = {
   let chapter-num = counter(heading.where(level: 1)).display()
   let type-num = counter(figure-kind-pic + chapter-num).display()
