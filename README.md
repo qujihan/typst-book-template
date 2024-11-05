@@ -12,18 +12,28 @@
 > [!IMPORTANT]
 > Prerequisites:
 > 1. [typst](https://github.com/typst/typst): *0.12.0* or later
+> 
+> Recommend:
 > 2. [Fonts](./fonts.json) (ref [fonts](https://github.com/qujihan/fonts) download fonts)
->   - Chinese font: [Source Han Serif SC](https://github.com/adobe-fonts/source-han-serif)
->   - Western font: [Lora](https://github.com/cyrealtype/Lora-Cyrillic)
->   - Code font: [CaskaydiaCove Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/CascadiaCode.zip)
+>   - cjk font: [Source Han Serif SC](https://github.com/adobe-fonts/source-han-serif)
+>   - latin font: [Lora](https://github.com/cyrealtype/Lora-Cyrillic)
+>   - code font: [CaskaydiaCove Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/CascadiaCode.zip)
 
 
 # Quick Start
 > [!Tip]
-> By default, the main.typ file in the parent directory of typst-book-template is used as the project entry point for compilation, and the output is saved as output_file.pdf.
+>  You can use submodule or directly download the code, so you can keep up with the updates in a timely manner.
 > 
-> If you want to make modifications, you can refer to typst-book-template/metadata.json and create a metadata.json file in the project root directory (at the same level as typst-book-template).
+>  And you can also use the official package manager, which will be more convenient. (coming soon)
 
+## Git submodule
+```shell
+git init
+git submodule add https://github.com/qujihan/typst-book-template.git typst-book-template
+```
+
+
+## Official Package Manager
 main.typ
 ```typ
 #import "typst-book-template/book.typ": *
@@ -45,8 +55,3 @@ src/chapter1.typ
 == section 1
 ```
 
-
-```shell
-git init
-git submodule add https://github.com/qujihan/typst-book-template.git typst-book-template
-```
