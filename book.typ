@@ -32,12 +32,7 @@
 
   show-cover(info.title, info.name)
   show-outline(info.outline-depth)
-
   counter(page).update(1)
-  show page: it => {
-    counter(footnote).update(0)
-    it
-  }
 
   show: set-emph-style.with(info)
   show: set-enum-style.with()

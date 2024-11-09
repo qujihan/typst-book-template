@@ -62,5 +62,7 @@
       )
       line(length: 100%, stroke: 0.7pt + line-color-state.get())
     }
+
+    counter(footnote).update(0)
   }
 )
